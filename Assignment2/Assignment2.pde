@@ -15,20 +15,22 @@ void setup(){
 }
 
 void draw(){
-  background(255,255,255);
+  
+  background(#23A2F5);
   back();
   fill(0);
-  float scaledMouseX = map(mouseX, 0, width - 1, 0, 570); 
+  float scaledMouseX = map(mouseX, 0, width - 1, 0, 575); 
   index = int(scaledMouseX);
   String date = air.getString(index, 0); 
   int value = air.getInt(index, 1); 
   String sunValue = sun.getString(index,1);
-  println("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue);
+  println("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue  +  "   X + y " +  mouseX + " " + mouseY);
 
   textSize(20); 
-  text("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue,20, height/3);
+  text("date: "  + date  + ".   Temp: " + value + ".   sun radiation: " + sunValue,20, height*5/6);
+  text("Move your mouse from right to left to show the data of different date",20,height*5.3/6);
   
-  float scaledMouseX2 =  map(int(sunValue), 0, width - 1, 30, 100); 
+  float scaledMouseX2 =  map(int(sunValue), 0, width - 1, 30, 300); 
   
   int sunWidth;
   sunWidth = int(scaledMouseX2);
@@ -45,6 +47,7 @@ void draw(){
   }
   
   sun();
+  thermometer();
 
 }
 
@@ -190,4 +193,28 @@ void sun(){
   endShape();
 
 
+}
+
+void thermometer()
+{
+  stroke(3, 0, 0);
+  beginShape();
+  vertex(785, 600);
+  vertex(785, 250);
+  vertex(815, 250);
+  vertex(815, 600);
+  endShape();
+  fill(255, 0, 0);
+  ellipse(800, 600, 50, 50);
+//
+  fill(255,255,255); 
+  stroke(3, 0, 0);
+  beginShape();
+  vertex(885, 600);
+  vertex(885, 250);
+  vertex(915, 250);
+  vertex(915, 600);
+  endShape();
+  fill(0, 158, 252); 
+  ellipse(900,600,50,50);
 }
