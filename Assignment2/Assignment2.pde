@@ -1,11 +1,17 @@
 Table air;
 Table sun;
 int index;
+int d = 30;
+int radius = 5;
+int mr = 60;
+int l = 20;
+
 
 void setup(){
   size(1000,800);
   air = loadTable("air.csv", "csv");
   sun = loadTable("sun.csv", "csv");
+  smooth();
 }
 
 void draw(){
@@ -30,6 +36,8 @@ void draw(){
   }else{
   dog("h");
   }
+  
+  sun();
 
 }
 
@@ -126,4 +134,57 @@ void dog(String s)
   textSize(20);
   text("It's Too Hot!",170,height/2-15);
   }
+}
+
+
+
+void sun(){
+
+
+  background(255);
+  // sun
+  fill(210,193,105);
+  ellipse(400,150,100,100);
+  //color c1 = color(0, 100, 100);
+  //color c2 = color(0, 100, 30);
+  //for(int r = 0; r < 100; r++) {
+  //  float n = map(r, 0, 100, 0, 1);
+  //  color newc = lerpColor(c1, c2, n);
+  //  stroke(newc);
+  //  ellipse(400, 150, r, r);
+  //} 
+  fill(0);
+  ellipse(385,140,10,10);
+  ellipse(415,140,10,10);
+  noFill();
+  beginShape();
+  vertex(385, 160);
+  bezierVertex(385, 160, 400, 190, 415, 160);
+  endShape();
+  fill(215,113,38);
+  for(int i = 0; i<8; i++){
+    int r = mr + d;
+    float x = sin(360.0 /8 * i * 3.14 / 180) * r + 400;
+    float y = cos(360.0 /8 * i * 3.14 / 180) * r + 150;
+    float x1 = sqrt(mr * mr + l * l /4) * sin(360.0 /8 * i * 3.14 / 180 - atan(l * 1.0 /2 /mr)) + 400;
+    float y1 = sqrt(mr * mr + l * l /4) * cos(360.0 /8 * i * 3.14 / 180 - atan(l * 1.0/2 /mr)) + 150;
+    float x2 = sqrt(mr * mr + l * l /4) * sin(360.0 /8 * i * 3.14 / 180 + atan(l * 1.0/2 /mr)) + 400;
+    float y2 = sqrt(mr * mr + l * l /4) * cos(360.0 /8 * i * 3.14 / 180 + atan(l * 1.0/2 /mr)) + 150;
+    //ellipse(x,y,radius,radius);
+    triangle(x,y,x1,y1,x2,y2);
+  }
+  
+  //cloud
+  fill(255);
+  beginShape();
+  vertex(50, 180);
+  bezierVertex(50, 150, 80, 120, 132, 150);
+  bezierVertex(150, 115, 210, 135, 200, 160);
+  bezierVertex(270, 175, 230, 235, 170, 220);
+  bezierVertex(170, 250, 80, 255, 70, 220);
+  bezierVertex(20, 240, 25, 170, 50, 180);
+  endShape();
+
+
+
 }
