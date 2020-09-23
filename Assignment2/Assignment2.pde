@@ -39,9 +39,9 @@ void draw(){
   wen = int(value);
   
   if(wen >26 ){
-  dog("n");
-  }else{
   dog("h");
+  }else{
+  dog("n");
   }
   
   sun();
