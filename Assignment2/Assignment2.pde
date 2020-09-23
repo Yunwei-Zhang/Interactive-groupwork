@@ -16,9 +16,7 @@ void setup(){
 
 void draw(){
   
-  
-  
-  background(255,255,255);
+  background(#23A2F5);
   back();
   fill(0);
   float scaledMouseX = map(mouseX, 0, width - 1, 0, 575); 
