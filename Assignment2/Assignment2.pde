@@ -21,7 +21,7 @@ void draw(){
   background(255,255,255);
   back();
   fill(0);
-  float scaledMouseX = map(mouseX, 0, width - 1, 0, 570); 
+  float scaledMouseX = map(mouseX, 0, width - 1, 0, 575); 
   index = int(scaledMouseX);
   String date = air.getString(index, 0); 
   int value = air.getInt(index, 1); 
@@ -30,7 +30,7 @@ void draw(){
 
   textSize(20); 
   text("date: "  + date  + ".   Temp: " + value + ".   sun radiation: " + sunValue,20, height*5/6);
-  text("Move your mouse from right to left to show the data of different date",20,height*5.5/6);
+  text("Move your mouse from right to left to show the data of different date",20,height*5.3/6);
   
   float scaledMouseX2 =  map(int(sunValue), 0, width - 1, 30, 300); 
   
