@@ -148,16 +148,15 @@ void dog(String s)
 void sun(){
 
  // sun
-  fill(210,193,105);
-  ellipse(400,150,100,100);
-  //color c1 = color(0, 100, 100);
-  //color c2 = color(0, 100, 30);
-  //for(int r = 0; r < 100; r++) {
-  //  float n = map(r, 0, 100, 0, 1);
-  //  color newc = lerpColor(c1, c2, n);
-  //  stroke(newc);
-  //  ellipse(400, 150, r, r);
-  //} 
+  //fill(210,193,105);
+  //ellipse(400,150,100,100);
+  noFill();
+  strokeWeight(2);
+  for(int i =0;i<100;i++)
+  {
+    stroke(222, 228 - (228-186)/100.0 * i, 178 - (178-80) / 100.0 *i);
+    ellipse(400,150,i,i);
+  }
   fill(0);
   ellipse(385,140,10,10);
   ellipse(415,140,10,10);
