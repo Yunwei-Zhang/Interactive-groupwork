@@ -22,7 +22,14 @@ void draw(){
   textSize(20); 
   text("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue,20, height/3);
   
+  int wen;
+  wen = int(value);
+  
+  if(wen >26 ){
   dog("n");
+  }else{
+  dog("h");
+  }
 
 }
 
