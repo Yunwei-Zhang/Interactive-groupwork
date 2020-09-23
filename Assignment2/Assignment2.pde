@@ -15,6 +15,9 @@ void setup(){
 }
 
 void draw(){
+  
+  
+  
   background(255,255,255);
   back();
   fill(0);
@@ -23,12 +26,13 @@ void draw(){
   String date = air.getString(index, 0); 
   int value = air.getInt(index, 1); 
   String sunValue = sun.getString(index,1);
-  println("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue);
+  println("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue  +  "   X + y " +  mouseX + " " + mouseY);
 
   textSize(20); 
-  text("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue,20, height/3);
+  text("date: "  + date  + ".   Temp: " + value + ".   sun radiation: " + sunValue,20, height*5/6);
+  text("Move your mouse from right to left to show the data of different date",20,height*5.5/6);
   
-  float scaledMouseX2 =  map(int(sunValue), 0, width - 1, 30, 100); 
+  float scaledMouseX2 =  map(int(sunValue), 0, width - 1, 30, 300); 
   
   int sunWidth;
   sunWidth = int(scaledMouseX2);
