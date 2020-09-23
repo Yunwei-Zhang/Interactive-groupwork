@@ -28,6 +28,13 @@ void draw(){
   textSize(20); 
   text("num: " + index  +  ".    date: "  + date  + ".   value: " + value + ".   sun: " + sunValue,20, height/3);
   
+  float scaledMouseX2 =  map(int(sunValue), 0, width - 1, 30, 100); 
+  
+  int sunWidth;
+  sunWidth = int(scaledMouseX2);
+  d= sunWidth;
+  
+  
   int wen;
   wen = int(value);
   
@@ -140,9 +147,7 @@ void dog(String s)
 
 void sun(){
 
-
-  background(255);
-  // sun
+ // sun
   fill(210,193,105);
   ellipse(400,150,100,100);
   //color c1 = color(0, 100, 100);
@@ -184,7 +189,6 @@ void sun(){
   bezierVertex(170, 250, 80, 255, 70, 220);
   bezierVertex(20, 240, 25, 170, 50, 180);
   endShape();
-
 
 
 }
